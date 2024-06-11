@@ -48,10 +48,29 @@ const line2=document.getElementById('line2');
 const line3=document.getElementById('line3');
 const line4=document.getElementById('line4');
 const line5=document.getElementById('line5');
+const line6=document.getElementById('line6');
 
 scrollobserver(line1,true,0.15);
 scrollobserver(line2,false,0.15);
 scrollobserver(line3,true,0.15);
 scrollobserver(line4,true,0.15);
 scrollobserver(line5,false,0.15);
+scrollobserver(line6,false,0.5);
 
+
+const dtElemenet=document.querySelectorAll('dt');
+
+dtElemenet.forEach(element => {
+    element.addEventListener('click',()=>{
+        
+        const ddId=element.getAttribute('aria-controls');
+
+        const ddElement=document.getElementById(ddId);
+
+        const ddarrowicon=element.querySelectorAll('i')[0];
+        
+        ddElement.classList.toggle('hidden');
+        
+        ddarrowicon.classList.toggle('-rotate-180');
+    })
+});
