@@ -15,7 +15,7 @@ function handlemenu() {
         closeIcon.style.display = 'block';
     }
 }
-const intialtranslateltr=-48*4;
+const intialtranslateltr= -48*4;
 const intialtranslatertl= 36*4;
 function scrollobserver(element, isLTR, speed) {
     const intersectionCallback = (entries) => {
@@ -28,15 +28,16 @@ function scrollobserver(element, isLTR, speed) {
         }
     }
     const intersectionobserver= new IntersectionObserver(intersectionCallback);
+    
     intersectionobserver.observe(element);
     function scrollHandler(){
-        const translatex=(window.innerHeight-element.getBoundingClientRect().top)*speed;
+        const translateX = (window.innerHeight - element.getBoundingClientRect().top) * speed;
         let totaltranslate=0;
         if(isLTR){
-            totaltranslate=translatex+intialtranslateltr;
+            totaltranslate=translateX+intialtranslateltr;
         }
         else{
-            totaltranslate=-(translatex+intialtranslatertl);
+            totaltranslate=-(translateX+intialtranslatertl);
         }
         element.style.transform=`translateX(${totaltranslate}px)`;
     }
